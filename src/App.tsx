@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Path from 'path';
-import uploadFileToBlob, { isStorageConfigured } from './azure-storage-blob';
+import uploadFileToBlob, { deleteBlob, isStorageConfigured } from './azure-storage-blob';
 
 const storageConfigured = isStorageConfigured();
 
@@ -16,6 +16,7 @@ const App = (): JSX.Element => {
   // UI/form management
   const [uploading, setUploading] = useState(false);
   const [inputKey, setInputKey] = useState(Math.random().toString(36));
+
 
   const onFileChange = (event: any) => {
     // capture file into state
@@ -36,6 +37,7 @@ const App = (): JSX.Element => {
     setFileSelected(null);
     setUploading(false);
     setInputKey(Math.random().toString(36));
+  
   };
 
   // display form
@@ -60,10 +62,21 @@ const App = (): JSX.Element => {
                 {Path.basename(item)}
                 <br />
                 <img src={item} alt={item} height="200" />
+               
               </div>
+              
+              <button type="submit" onClick={() => {
+                deleteBlob(Path.basename(item));
+              
+            }
+              }>Delete</button>
+
             </li>
+
           );
+         
         })}
+     
       </ul>
     </div>
   );
@@ -74,7 +87,7 @@ const App = (): JSX.Element => {
       {storageConfigured && !uploading && DisplayForm()}
       {storageConfigured && uploading && <div>Uploading</div>}
       <hr />
-      {storageConfigured && blobList.length > 0 && DisplayImagesFromContainer()}
+      {storageConfigured  && DisplayImagesFromContainer()}
       {!storageConfigured && <div>Storage is not configured.</div>}
     </div>
   );

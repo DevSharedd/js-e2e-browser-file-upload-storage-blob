@@ -1,0 +1,4 @@
+chaine :  BlobEndpoint=https://fileuploaddevshared.blob.core.windows.net/;QueueEndpoint=https://fileuploaddevshared.queue.core.windows.net/;FileEndpoint=https://fileuploaddevshared.file.core.windows.net/;TableEndpoint=https://fileuploaddevshared.table.core.windows.net/;SharedAccessSignature=sv=2021-06-08&ss=b&srt=sco&sp=rwdlactfx&se=2023-06-17T02:27:26Z&st=2022-06-16T18:27:26Z&spr=https&sig=nhIfV%2B79ougKslTvyWUljmP9B8s0Pdj75Mk02YCRPqQ%3D
+jeton sas :?sv=2021-06-08&ss=b&srt=sco&sp=rwdlactfx&se=2023-06-17T02:27:26Z&st=2022-06-16T18:27:26Z&spr=https&sig=nhIfV%2B79ougKslTvyWUljmP9B8s0Pdj75Mk02YCRPqQ%3D
+URL de la signature d'accès partagé du service BLOB :
+https://fileuploaddevshared.blob.core.windows.net/?sv=2021-06-08&ss=b&srt=sco&sp=rwdlactfx&se=2023-06-17T02:27:26Z&st=2022-06-16T18:27:26Z&spr=https&sig=nhIfV%2B79ougKslTvyWUljmP9B8s0Pdj75Mk02YCRPqQ%3D

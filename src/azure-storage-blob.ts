@@ -70,6 +70,16 @@ const uploadFileToBlob = async (file: File | null): Promise<string[]> => {
   return getBlobsInContainer(containerClient);
 };
 // </snippet_uploadFileToBlob>
+//delete blob from container
+export const deleteBlob= (item: string)=>{
+   // get BlobService = notice `?` is pulled out of sasToken - if created in Azure portal
+   const blobService = new BlobServiceClient(
+    `https://${storageAccountName}.blob.core.windows.net/?${sasToken}`
+  );
+  const containerClient: ContainerClient = blobService.getContainerClient(containerName);
 
-export default uploadFileToBlob;
+containerClient.deleteBlob(item);
 
+  // get list of blobs in container
+  return containerClient;};
+export default uploadFileToBlob ;
